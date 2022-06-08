@@ -1,25 +1,27 @@
 <template>
   <div class="home-wrapper">
-    <titleMenu/>
-    <searchBox/>
-    <webClass/>
+    <titleMenu />
+    <searchBox />
+    <webClass />
+    <urlList />
   </div>
 </template>
 <script>
-import titleMenu from '../components/titleMenu.vue'
-import searchBox from '../components/searchBox.vue'
-import webClass from '../components/webClass.vue'
+import titleMenu from "../components/titleMenu.vue";
+import searchBox from "../components/searchBox.vue";
+import webClass from "../components/webClass.vue";
+import urlList from "../components/urlList";
 export default {
-  name: 'homeC',
+  name: "homeC",
   data() {
-    return {}
+    return {};
   },
   components: {
     titleMenu,
     searchBox,
-    webClass
-  }
-}
+    webClass,
+    urlList,
+  },
+};
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

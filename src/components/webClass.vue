@@ -4,19 +4,19 @@
 
 <script>
 export default {
-  name: 'webClass',
+  name: "webClass",
   data() {
-    return {}
-  }
-
-}
+    return {};
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-.wc-wrapper{
+.wc-wrapper {
   width: 80%;
   height: 200px;
   background: red;
   margin: 0 auto;
+  margin-bottom: 5px;
 }
 </style>
