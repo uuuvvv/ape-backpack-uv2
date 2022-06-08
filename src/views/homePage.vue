@@ -1,5 +1,5 @@
 <template>
-  <div class="hp-wrapper"></div>
+  <div class="hp-wrapper" id="lineBg"></div>
 </template>
 
 <script>
@@ -8,6 +8,7 @@ export default {
   data() {
     return {};
   },
+  mounted() {},
 };
 </script>
 

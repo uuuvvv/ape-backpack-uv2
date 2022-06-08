@@ -1,0 +1,22 @@
+[
+  {
+    "title": "主页",
+    "selected":1
+  },
+  {
+    "title": "一行事",
+    "selected": 0
+  },
+  {
+    "title": "代码小白",
+    "selected": 0
+  },
+  {
+    "title": "生活日常",
+    "selected": 0
+  },
+  {
+    "title": "其他",
+    "selected": 0
+  }
+]
