@@ -77,10 +77,12 @@ import {
   MessageBox,
   Message,
   Notification,
+  Avatar,
 } from "element-ui";
 
 Vue.use(Pagination);
 Vue.use(Dialog);
+Vue.use(Avatar);
 Vue.use(Autocomplete);
 Vue.use(Dropdown);
 Vue.use(DropdownMenu);

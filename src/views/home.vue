@@ -1,14 +1,20 @@
 <template>
-  <div class="home-wrapper">123666666666666666666666666666666666666666</div>
+  <div class="home-wrapper">
+    <titleMenu/>
+  </div>
 </template>
 <script>
+import titleMenu from '../components/titleMenu.vue'
 export default {
   name: 'homeC',
   data() {
     return {}
+  },
+  components: {
+    titleMenu
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 
 </style>

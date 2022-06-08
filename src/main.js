@@ -4,7 +4,6 @@ import router from "./router";
 import store from "./store";
 // 引入elementUI
 import './plugins/elementUI'
-
 // 阻止 vue 在启动时生成生产提示。
 Vue.config.productionTip = false
 
