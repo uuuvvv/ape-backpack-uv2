@@ -1,0 +1,13 @@
+{
+//  将“es2015” 改为 "@babel/preset-env"
+  "presets": [["@babel/preset-env", { "modules": false }]],
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
