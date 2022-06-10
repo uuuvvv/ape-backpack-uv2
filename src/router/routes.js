@@ -1,4 +1,5 @@
 const home = () => import('../views/home.vue');
+const loginPage = () => import("../views/loginPage.vue");
 export default [
   {
     path: "/",
@@ -11,5 +12,10 @@ export default [
     meta: {
       title: "首页",
     },
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: loginPage,
   },
 ];

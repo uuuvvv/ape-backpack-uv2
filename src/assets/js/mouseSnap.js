@@ -121,7 +121,8 @@ canvas.id = `canvas${styleOptions.tagLength}`
 canvas.style.cssText = `position:fixed;top:0;left:0;z-index:${styleOptions.zIndex};opacity:${styleOptions.opacity}`
 // 将canvas插入body
 // var bodyDom = getElementFn('body')[0]
-var app = document.getElementById("lineBg");
+var app = document.getElementById("loginPage");
+
 app.appendChild(canvas);
 // 获取canvas的宽高同时为canvas设置宽高
 getWidthOrHeight()
