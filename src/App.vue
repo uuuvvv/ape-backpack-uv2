@@ -1,12 +1,20 @@
 <template>
-  <div id="app">  
+  <div id="app">
+    <div class="app-content">
     <router-view></router-view>
+    </div>
+    <div class="app-bg">
+      <loginBg />
+      <loginBg />
+    </div>
   </div>
 </template>
 <script>
+import loginBg from './components/loginBg.vue'
 export default {
   name: 'App',
   components: {
+    loginBg
   },
   watch: {
   }
@@ -20,5 +28,9 @@ $c1:rgb(0, 140, 255);
   height: 100vh;
   background-color: rgb(11, 12, 12);
   min-width: 1100px;
+  .app-content{
+    position: relative;
+    z-index: 999;
+  }
 }
 </style>
