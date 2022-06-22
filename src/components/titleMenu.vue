@@ -9,7 +9,7 @@
     <ul class="tm-menu">
       <li class="tm-menu-item ml15 " v-for="(item,index) in menuData" :key="index" :class="item.selected==1?'actived':''">{{item.title}}</li>
     </ul>
-    <div class="tm-user ptb10">
+    <div class="tm-user ptb10" @click="handlerLogin">
       <el-avatar icon="el-icon-user-solid"></el-avatar>
       <div class="ml15">登录 / 注册</div>
     </div>
@@ -21,9 +21,20 @@ export default {
   name: "titleMenu",
   data() {
     return {
-      menuData:require('../assets/json/title.json')
+      menuData:require('../assets/json/title.json'),//引入标题静态数据
+      isLogin:0 //登录状态 0 未登录; 1 已登录
     };
   },
+  methods:{
+    handlerLogin(){
+      if(this.isLogin === 1){
+        console.log('已登录')
+      }else{
+        console.log('未登录')
+        this.$router.replace('login')
+      }
+    }
+  }
 };
 </script>
 

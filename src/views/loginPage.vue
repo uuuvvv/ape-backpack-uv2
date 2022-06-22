@@ -115,6 +115,8 @@ export default {
           return false;
         }
       });
+      // 跳转主页
+      this.$router.replace('/home');
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
