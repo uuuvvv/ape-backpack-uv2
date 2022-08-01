@@ -9,9 +9,9 @@
 <script>
 import searchBox from "@/components/searchBox.vue";
 import webClass from "@/components/webClass.vue";
-import urlList from "@/components/urlList";
+import urlList from "@/components/urlList/index.vue";
 export default {
-  name: "homePage",
+  name: "homePage",//首页内容
   data() {
     return {};
   },

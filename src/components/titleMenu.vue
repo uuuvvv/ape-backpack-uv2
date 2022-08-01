@@ -22,16 +22,18 @@ export default {
   name: "titleMenu",
   data() {
     return {
-      menuData: require('../assets/json/title.json'),//引入标题静态数据
+      menuData: require('@/assets/json/title.json'),//引入标题静态数据
       isLogin: 0, //登录状态 0 未登录; 1 已登录
       activeIndex: '0'//选中的下标
     };
   },
-  props:[{}],
+  props:[],
   methods: {
     // 处理选中方法
     handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+
+      console.log(key, keyPath,this.menuData[key].path);
+      this.$router.replace(this.menuData[key].path)
     },
     // 处理登录状态
     handlerLogin() {
@@ -39,7 +41,7 @@ export default {
         console.log('已登录')
       } else {
         console.log('未登录')
-        this.$router.replace('login')
+        this.$router.replace('/login')
       }
     }
   }
