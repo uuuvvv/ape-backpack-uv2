@@ -1,0 +1,29 @@
+[
+  {
+    "title": "首页",
+    "selected":1,
+    "path":"/home/homePage"
+  },
+  {
+    "title": "网络向导",
+    "selected": 0,
+    "path":"/home/webTagsPage"
+
+  },
+  {
+    "title": "猿八股",
+    "selected": 0,
+    "path":"/home/eightPartPage"
+  },
+  {
+    "title": "消灭BUG",
+    "path":"/home/killBugPage",
+    "selected": 0
+  },
+  {
+    "title": "桃花源",
+    "selected": 0,
+    "path":"/home/peachPage"
+
+  }
+]

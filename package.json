@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "babel-plugin-component": "^1.1.1",
     "core-js": "^3.8.3",
+    "echarts": "^5.3.3",
     "element-ui": "^2.15.9",
     "sass-loader": "^13.0.0",
     "vue": "^2.6.14",
@@ -25,21 +27,8 @@
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "node-sass": "^7.0.1",
-    "vue-template-compiler": "^2.6.14"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {}
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^5.74.0"
   },
   "browserslist": [
     "> 1%",
