@@ -5,12 +5,11 @@
     </div>
     <div class="app-bg">
       <loginBg />
-      <loginBg />
     </div>
   </div>
 </template>
 <script>
-import loginBg from './components/loginBg.vue'
+import loginBg from './components/loginBg/loginBg.vue'
 export default {
   name: 'App',
   components: {
@@ -20,8 +19,8 @@ export default {
   }
 }
 </script>
-
 <style lang="scss">
+// 引入公用文件
 $c1:rgb(0, 140, 255);
 #app {
   width: 100%;

@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import titleMenu from "../components/titleMenu.vue";
+import titleMenu from "../components/title/titleMenu.vue";
 
 export default {
   // eslint-disable-next-line

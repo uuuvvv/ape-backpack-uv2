@@ -1,17 +1,17 @@
 // 主页
-const home = () => import("@/views/home.vue");
+const home = () => import("@/views/index.vue");
 // 登录页
-const loginPage = () => import("@/views/loginPage.vue");
+const loginPage = () => import("@/views/login/index.vue");
 // 主页内容
-const homePage = () => import("@/views/homePage.vue");
+const homePage = () => import("@/views/home/index.vue");
 // 网络书签
-const webTagsPage = () => import("@/views/webTagsPage.vue");
+const webTagsPage = () => import("@/views/webTag/index.vue");
 // 八股
-const eightPartPage = () => import("@/views/eightPartPage.vue");
+const eightPartPage = () => import("@/views/faceviews/index.vue");
 // 消灭bug
-const killBugPage = () => import("@/views/killBugPage.vue");
+const killBugPage = () => import("@/views/killBug/index.vue");
 // 挑花猿
-const peachPage = () => import("@/views/peachPage.vue");
+const peachPage = () => import("@/views/userInfo/index.vue");
 
 export default [
   {
