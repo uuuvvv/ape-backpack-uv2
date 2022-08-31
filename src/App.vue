@@ -20,8 +20,6 @@ export default {
 }
 </script>
 <style lang="scss">
-// 引入公用文件
-$c1:rgb(0, 140, 255);
 #app {
   width: 100%;
   height: 100vh;
