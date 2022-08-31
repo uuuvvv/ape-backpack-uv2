@@ -6,19 +6,22 @@
   font-family: $d;
 }
 // 宽、高、背景色
-@mixin sm-whbb($a,$b,$c) {
-  width: $a;
-  height: $b;
-  background-color: $c;
+@mixin sm-whbc($w,$h,$bc:transparent) {
+  width: $w;
+  height: $h;
+  background-color: $bc;
 }
+
 // 定位 上右下左
-@mixin sm-position($a,$b,$c,$d,$e){
-  position: $a;
-  top: $b;
-  right: $c;
-  bottom: $d;
-  left: $e;
-}
+@mixin sm-ptrbl($p,$t: auto,$r: auto,$b: auto,$l: auto){
+  position: $p;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+} 
+
+
 // 弹性盒常用
 @mixin  sm-flexja ($j,$a){
   display: flex;
