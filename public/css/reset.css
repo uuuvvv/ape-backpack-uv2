@@ -81,21 +81,4 @@ body{
 html{
   overflow-y: scroll;
 }
- 
-/*清除浮动*/
-.clearfix:before,
-.clearfix:after{
-  content: " ";
-  display: inline-block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-.clearfix{
-  *zoom: 1;
-}
- 
-/*隐藏*/
-.dn{
-  display: none;
-}
+

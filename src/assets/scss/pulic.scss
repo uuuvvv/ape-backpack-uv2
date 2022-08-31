@@ -2,4 +2,7 @@
 @import './color.scss';
 // elementUI样式重写
 @import './resetElement.scss';
-// 
+// mixin混合样式
+@import './mixins.scss';
+// 通用样式
+@import './common.scss';

@@ -1,0 +1,40 @@
+/*清除浮动*/
+.cc-clearfix:before,
+.cc-clearfix:after{
+  content: " ";
+  display: inline-block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.cc-clearfix{
+  *zoom: 1;
+}
+
+/* 隐藏节点 */
+.cc-dn{
+  display: none;
+}
+
+/* 溢出显示省略号 */
+.ccc-omit{
+  word-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 定位移动居中（自身相对父元素） */
+.cc-ptc{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+/* 内部元素居中（flex） */
+.cc-fcc{
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+}

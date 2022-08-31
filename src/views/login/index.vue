@@ -129,23 +129,24 @@ export default {
 $lc1: rgb(13, 172, 235);
 .l-wrapper {
   .login-content {
-    width: 100vw;
-    height: 100vh;
+    @include sm-whbc($w:100vw,$h:100vh);
+    min-width: 1000px;
     .login-box {
-      width: 50%;
-      height: 50%;
-      background-color: $login-card;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 999;
-      transform: translate(-50%, -50%);
-      border-radius: 10px;
-      box-sizing: border-box;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 20px;
+      @include sm-whbc(50%,100%,#fff);
+      // width: 50%;
+      // height: 100vh;
+      // background-color: $sc-ff;
+      // position: absolute;
+      // top: 50%;
+      // left: 50%;
+      // z-index: 999;
+      // transform: translate(-50%, -50%);
+      // border-radius: 10px;
+      // box-sizing: border-box;
+      // display: flex;
+      // justify-content: space-around;
+      // align-items: center;
+      // padding: 20px;
       .l-con {
         height: 80%;
         width: 30%;

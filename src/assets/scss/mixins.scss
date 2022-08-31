@@ -1,0 +1,32 @@
+// 字体大小、颜色、加粗、字体
+@mixin sm-font($a,$b,$c,$d) {
+  font-size: $a;
+  font-weight: $b;
+  color: $c;
+  font-family: $d;
+}
+// 宽、高、背景色
+@mixin sm-whbc($w,$h,$bc:transparent) {
+  width: $w;
+  height: $h;
+  background-color: $bc;
+}
+
+// 定位 上右下左
+@mixin sm-ptrbl($p,$t: auto,$r: auto,$b: auto,$l: auto,$zi:auto){
+  position: $p;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+  z-index: $zi;
+} 
+
+
+// 弹性盒常用
+@mixin  sm-flexja ($j,$a){
+  display: flex;
+  display: -webkit-flex;
+  justify-content: $j;
+  align-items: $a;
+}
