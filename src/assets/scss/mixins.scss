@@ -13,12 +13,13 @@
 }
 
 // 定位 上右下左
-@mixin sm-ptrbl($p,$t: auto,$r: auto,$b: auto,$l: auto){
+@mixin sm-ptrbl($p,$t: auto,$r: auto,$b: auto,$l: auto,$zi:auto){
   position: $p;
   top: $t;
   right: $r;
   bottom: $b;
   left: $l;
+  z-index: $zi;
 } 
 
 
