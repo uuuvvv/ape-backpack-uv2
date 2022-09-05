@@ -126,42 +126,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$lc1: rgb(13, 172, 235);
 .l-wrapper {
+   @include sm-whbc($w:100%,$h:100%);
   .login-content {
-    @include sm-whbc($w:100vw,$h:100vh);
-    min-width: 1000px;
+    @include sm-whbc($w:100%,$h:100%);
+   position: relative;
     .login-box {
-      @include sm-whbc(50%,100%,#fff);
-      // width: 50%;
-      // height: 100vh;
-      // background-color: $sc-ff;
-      // position: absolute;
-      // top: 50%;
-      // left: 50%;
-      // z-index: 999;
-      // transform: translate(-50%, -50%);
-      // border-radius: 10px;
-      // box-sizing: border-box;
-      // display: flex;
-      // justify-content: space-around;
-      // align-items: center;
-      // padding: 20px;
+      @include sm-whbc(900px,500px,$sc-ff);
+      @include co-flexcc;
+      @include co-po-trans;
       .l-con {
-        height: 80%;
-        width: 30%;
-        background: #666;
+        @include sm-whbc($w:30%,$h:80%,$bc:$sc-66);
         border-radius: 5px;
       }
       .r-con {
-        height: 100%;
-        width: 60%;
+        @include sm-whbc($w:60%,$h:100%);
         border-radius: 5px;
         .l-title {
-          font-size: 28px;
-          color: $lc1;
-          width: 100%;
-          height: 60px;
+          @include sm-wh(100%,60px);
+          @include sm-font($a:28px,$c:$sc-r13);
           text-align: center;
           line-height: 60px;
         }

@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <div class="app-content">
+  <div id="app" class="app-wrapper cc-over-scroll">
+    <div class="app-content cc-over-scroll">
     <router-view></router-view>
     </div>
     <div class="app-bg">
@@ -20,14 +20,17 @@ export default {
 }
 </script>
 <style lang="scss">
-#app {
-  width: 100%;
-  height: 100vh;
-  background-color: rgb(11, 12, 12);
-  min-width: 1100px;
+@import '@/assets/css/common.css';
+.app-wrapper {
+  @include sm-whbc($w:100vw,$h:100vh,$bc:$sc-33);
   .app-content{
-    position: relative;
-    z-index: 999;
+    @include sm-whbc($w:100%,$h:100%);
+    @include sm-ptrbl($p:absolute,$t:0,$l:0,$zi:99);
+    min-width: 1100px;
+  }
+  .app-bg{
+    @include sm-whbc($w:100%,$h:100%);
+    @include sm-ptrbl($p:absolute,$t:0,$l:0);
   }
 }
 </style>

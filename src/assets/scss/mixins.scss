@@ -1,5 +1,6 @@
+@import './color.scss';
 // 字体大小、颜色、加粗、字体
-@mixin sm-font($a,$b,$c,$d) {
+@mixin sm-font($a,$b: 400,$c:$sc-33,$d:'黑体') {
   font-size: $a;
   font-weight: $b;
   color: $c;
@@ -11,7 +12,11 @@
   height: $h;
   background-color: $bc;
 }
-
+// 宽、高、背景色
+@mixin sm-wh($w,$h) {
+  width: $w;
+  height: $h;
+}
 // 定位 上右下左
 @mixin sm-ptrbl($p,$t: auto,$r: auto,$b: auto,$l: auto,$zi:auto){
   position: $p;

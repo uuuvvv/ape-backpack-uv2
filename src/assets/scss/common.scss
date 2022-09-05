@@ -9,3 +9,10 @@
   overflow:hidden;
   text-overflow: ellipsis;
 }
+
+@mixin co-po-trans{
+  position: absolute;
+  top: 50%;;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
