@@ -17,8 +17,8 @@
 }
 
 /* 溢出显示省略号 */
-.ccc-omit{
-  word-wrap: nowrap;
+.cc-omit{
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -33,8 +33,8 @@
 
 /* 内部元素居中（flex） */
 .cc-fcc{
-  display: flex;
   display: -webkit-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }

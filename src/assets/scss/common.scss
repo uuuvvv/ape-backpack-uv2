@@ -1,0 +1,11 @@
+@mixin co-flexcc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin co-omit {
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
