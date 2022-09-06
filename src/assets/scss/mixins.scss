@@ -12,7 +12,7 @@
   height: $h;
   background-color: $bc;
 }
-// 宽、高、背景色
+// 宽、高
 @mixin sm-wh($w,$h) {
   width: $w;
   height: $h;
