@@ -4,8 +4,8 @@ import router from "./router";
 import store from "./store";
 
 // 引入elementUI
-import './plugins/elementUI'
-
+import './plugins/elementUI';
+import './components'
 // 引入工具函数
 import utils from '@/assets/js/utils';
 import validations from '@/assets/js/validations';

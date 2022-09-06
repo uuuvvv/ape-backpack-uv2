@@ -21,6 +21,7 @@ export default {
 </script>
 <style lang="scss">
 @import '@/assets/css/common.css';
+@import './assets/fontFamily/font.css';
 .app-wrapper {
   @include sm-whbc($w:100vw,$h:100vh,$bc:$sc-33);
   .app-content{

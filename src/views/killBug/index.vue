@@ -1,6 +1,10 @@
 <template>
-  <div class="kbp-wrapper">
-    killBugPage
+  <div class="kbp-wrapper">饭锅电饭锅电饭锅
+    <svg class="cc-icon" aria-hidden="true">
+  <use xlink:href="#ape-icon-icon_baoxue"></use>
+</svg>
+      <iconSvg :icon_name='`#ape-icon-dingdan`'></iconSvg>
+      <icon-svg :icon_name='`#ape-icon-dingdan`'></icon-svg>
   </div>
 </template>
 
@@ -22,6 +26,7 @@ export default {
   height: 200px;
   background: red;
   margin: 0 auto;
-
+  font-family: '阿里妈妈数黑体 Bold';
+  font-size: 100px;
 }
 </style>
