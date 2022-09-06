@@ -4,16 +4,19 @@
   /* 仓耳渔阳体 */
   font-family: "canger-W02";
   font-weight: 400;
-  src: 
-  url("./woff/W02/6qMwxA40cZxv7NFy8XUcR.woff2") format("woff2"),
-  url("./woff/W02/6qMwxA40cZxv7NFy8XUcR.woff") format("woff");
+  src: url("./woff/W02/6qMwxA40cZxv7NFy8XUcR.woff2") format("woff2"),
+    url("./woff/W02/6qMwxA40cZxv7NFy8XUcR.woff") format("woff");
   font-display: swap;
 }
 
 /* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
-  font-family: "仓耳渔阳体 W02";font-weight: 400;src: url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/ux502N2VrqFNNYjh0S1SE.woff2") format("woff2"),
-  url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/Fdt7hlA25Clwh15W8G97X.woff") format("woff");
+  font-family: "仓耳渔阳体 W02";
+  font-weight: 400;
+  src: url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/ux502N2VrqFNNYjh0S1SE.woff2")
+      format("woff2"),
+    url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/Fdt7hlA25Clwh15W8G97X.woff")
+      format("woff");
   font-display: swap;
 }
 
@@ -21,25 +24,36 @@
   /* 仓耳渔阳体 */
   font-family: "canger-W04";
   font-weight: 400;
-  src: 
-  url("./woff/W04/zdc9uvQttuuF1a5PPXVPT.woff2") format("woff2"),
-  url("./woff/W04/zdc9uvQttuuF1a5PPXVPT.woff") format("woff");
+  src: url("./woff/W04/zdc9uvQttuuF1a5PPXVPT.woff2") format("woff2"),
+    url("./woff/W04/zdc9uvQttuuF1a5PPXVPT.woff") format("woff");
   font-display: swap;
 }
 @font-face {
-  font-family: "仓耳渔阳体 W02";font-weight: 400;src: url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/ux502N2VrqFNNYjh0S1SE.woff2") format("woff2"),
-  url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/Fdt7hlA25Clwh15W8G97X.woff") format("woff");
-  font-display: swap;
-}
-/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
-@font-face {
-  font-family: "站酷高端黑 Regular";font-weight: 400;src: url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/mBwSKxk1xNKCvM3UOGDZI.woff2") format("woff2"),
-  url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/3HeCSafIhgbAaXcLUmm_x.woff") format("woff");
+  font-family: "仓耳渔阳体 W02";
+  font-weight: 400;
+  src: url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/ux502N2VrqFNNYjh0S1SE.woff2")
+      format("woff2"),
+    url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/Fdt7hlA25Clwh15W8G97X.woff")
+      format("woff");
   font-display: swap;
 }
 /* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
 @font-face {
-  font-family: "阿里妈妈数黑体 Bold";font-weight: 700;src: url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/h8E9N8Ft_xJeu6xL9Aecn.woff2") format("woff2"),
-  url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/ACskfPV8D_kBqgODuboUp.woff") format("woff");
+  font-family: "站酷高端黑 Regular";
+  font-weight: 400;
+  src: url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/mBwSKxk1xNKCvM3UOGDZI.woff2")
+      format("woff2"),
+    url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/3HeCSafIhgbAaXcLUmm_x.woff")
+      format("woff");
+  font-display: swap;
+}
+/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: "阿里妈妈数黑体 Bold";
+  font-weight: 700;
+  src: url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/h8E9N8Ft_xJeu6xL9Aecn.woff2")
+      format("woff2"),
+    url("//at.alicdn.com/wf/webfont/IIhnUKKvWj8H/ACskfPV8D_kBqgODuboUp.woff")
+      format("woff");
   font-display: swap;
 }

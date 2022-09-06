@@ -10,12 +10,15 @@ export default {
   name: 'iconSvg',
   props: { 
     icon_name: { type: String }, 
-    class_name: { type: String } 
-  }
+    class_name: { type: String },
+    callback:{type:Function,default:null}
+  },
+  data(){return {}},
+  methods:{}
 }
 </script>
 <style lang="scss" scoped>
 .icon-svg-wrapper{
   display: inline;
-  }
+}
 </style>

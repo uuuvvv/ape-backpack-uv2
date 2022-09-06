@@ -2,28 +2,28 @@
   {
     "title": "首页",
     "selected":1,
-    "path":"/home/homePage"
+    "path":"/homePage"
   },
   {
     "title": "网络向导",
     "selected": 0,
-    "path":"/home/webTagsPage"
+    "path":"/webTagsPage"
 
   },
   {
     "title": "猿八股",
     "selected": 0,
-    "path":"/home/eightPartPage"
+    "path":"/eightPartPage"
   },
   {
     "title": "消灭BUG",
-    "path":"/home/killBugPage",
+    "path":"/killBugPage",
     "selected": 0
   },
   {
     "title": "桃花源",
     "selected": 0,
-    "path":"/home/peachPage"
+    "path":"/peachPage"
 
   }
 ]

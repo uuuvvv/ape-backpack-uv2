@@ -1,3 +1,4 @@
+@import '../fontFamily/font.css';
 /*清除浮动*/
 .cc-clearfix:before,
 .cc-clearfix:after{
@@ -43,12 +44,12 @@
 .cc-over-scroll{
   scrollbar-width: none; /* firefox */
   -ms-overflow-style: none; /* IE 10+ */
-  
 }
 .cc-over-scroll::-webkit-scrollbar {
   display: none; /* Chrome Safari */
 }
 
+/* iconfont 通用样式 */
 .cc-icon {
   width: 1em;
   height: 1em;
