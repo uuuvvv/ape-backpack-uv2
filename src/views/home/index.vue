@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import searchBox from "@/components/searchBox/searchBox.vue";
-import webClass from "@/components/card/webClass.vue";
-import urlList from "@/components/urlList/index.vue";
+import searchBox from "@/components/searchBoxCom/searchBox.vue";
+import webClass from "@/components/cardCom/webClass.vue";
+import urlList from "@/components/listCom/index.vue";
 export default {
   name: "homePage",//首页内容
   data() {

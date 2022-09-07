@@ -1,6 +1,6 @@
 <template>
   <div class="home-wrapper">
-    <titleMenu />
+    <titleMenu v-if="$route.path != '/login'" />
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import titleMenu from "../components/title/titleMenu.vue";
+import titleMenu from "../components/titleCom/titleMenu.vue";
 
 export default {
   // eslint-disable-next-line
@@ -23,9 +23,12 @@ export default {
     
   },
   mounted(){
-    console.log(this.$router,this.$route)
+    console.log(this.$router,"12112",this.$route)
   }
 };
 </script>
 <style lang="scss" scoped>
+.home-wrapper{
+    @include sm-whbc($w: 100%, $h: 100%);
+}
 </style>

@@ -11,7 +11,7 @@
 </template>
 <script>
 import views from './views';
-import loginBg from './components/bg/loginBg.vue';
+import loginBg from './components/bgCom/loginBg.vue';
 export default {
   name: 'App',
   components: {
