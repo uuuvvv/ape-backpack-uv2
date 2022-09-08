@@ -2,49 +2,45 @@
   <div class="l-wrapper" id="loginPage">
     <div class="login-content">
       <div class="login-box">
-        <div class="l-con"></div>
+        <div class="l-img"></div>
         <div class="r-con">
-          <div class="l-title">用 户 登 录</div>
+          <h1 class="l-title">猿背包</h1>
           <div class="l-form">
             <el-form
               :model="ruleForm"
               status-icon
               :rules="rules"
               ref="ruleForm"
-              label-width="100px"
               class="demo-ruleForm"
             >
-              <el-form-item label="用户名" prop="pass">
+              <el-form-item
+                v-for="(item, key) in ruleForm"
+                :prop="key"
+                :key="key"
+              >
                 <el-input
-                  type="password"
-                  v-model="ruleForm.pass"
+                  :type="key"
+                  v-model="ruleForm[key]"
                   autocomplete="off"
+                  :placeholder="phMsgList[key]"
+                  clearable
                 ></el-input>
-              </el-form-item>
-              <el-form-item label="密码" prop="checkPass">
-                <el-input
-                  type="password"
-                  v-model="ruleForm.checkPass"
-                  autocomplete="off"
-                ></el-input>
-              </el-form-item>
-              <el-form-item label="验证码" prop="age">
-                <el-input v-model.number="ruleForm.age"></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button @click="resetForm('ruleForm')">重置</el-button>
+                <div class="sub-btn">
                 <el-button>注册</el-button>
-                <el-button type="primary" @click="submitForm('ruleForm')"
-                  >提交</el-button
-                >
+                <el-button @click="submitForm('ruleForm')">提交</el-button></div>
+                
+              </el-form-item>
+              <el-form-item>
+                <div class="l-link">
+                  <div class="link-name">第三方登录：</div>
+                  <ul>
+                    <li></li>
+                  </ul>
+                </div>
               </el-form-item>
             </el-form>
-          </div>
-          <div class="l-link">
-            <div class="link-name">第三方登录：</div>
-            <ul>
-              <li></li>
-            </ul>
           </div>
         </div>
       </div>
@@ -53,100 +49,137 @@
 </template>
 <script>
 export default {
-  name: "loginPage", //登录页面
-  data() {
-    var checkAge = (rule, value, callback) => {
+  name: 'loginPage', //登录页面
+  data () {
+    // 校验用户名
+    var validateUserFn = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入用户名/手机号/邮箱'))
+      } else {
+        callback()
+      }
+    }
+    // 校验密码
+    var validatePassFn = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入密码'))
+      } else {
+        callback()
+      }
+    }
+    // 校验验证码
+    var validateCheckFn = (rule, value, callback) => {
       if (!value) {
-        return callback(new Error("年龄不能为空"));
+        return callback(new Error('请输入正确的验证码'))
       }
-      setTimeout(() => {
-        if (!Number.isInteger(value)) {
-          callback(new Error("请输入数字值"));
-        } else {
-          if (value < 18) {
-            callback(new Error("必须年满18岁"));
-          } else {
-            callback();
-          }
-        }
-      }, 1000);
-    };
-    var validatePass = (rule, value, callback) => {
-      if (value === "") {
-        callback(new Error("请输入密码"));
-      } else {
-        if (this.ruleForm.checkPass !== "") {
-          this.$refs.ruleForm.validateField("checkPass");
-        }
-        callback();
-      }
-    };
-    var validatePass2 = (rule, value, callback) => {
-      if (value === "") {
-        callback(new Error("请再次输入密码"));
-      } else if (value !== this.ruleForm.pass) {
-        callback(new Error("两次输入密码不一致!"));
-      } else {
-        callback();
-      }
-    };
+    }
     return {
       ruleForm: {
-        pass: "",
-        checkPass: "",
-        age: "",
+        username: '',
+        password: '',
+        checkNum: ''
       },
       rules: {
-        pass: [{ validator: validatePass, trigger: "blur" }],
-        checkPass: [{ validator: validatePass2, trigger: "blur" }],
-        age: [{ validator: checkAge, trigger: "blur" }],
+        username: [
+          { required: true, message: '请输入用户名/手机号/邮箱' },
+          { validator: validateUserFn, trigger: 'blur' }
+        ],
+        password: [{ validator: validatePassFn, trigger: 'blur' }],
+        checkNum: [{ validator: validateCheckFn, trigger: 'blur' }]
       },
-    };
+      phMsgList: {
+        username: '请输入用户名/手机号/邮箱',
+        password: '请输入密码',
+        checkNum: '请输入正确的验证码'
+      }
+    }
   },
   components: {},
-  mounted() {},
+  mounted () {},
   methods: {
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
+    submitForm (formName) {
+      this.$refs[formName].validate(valid => {
         if (valid) {
-          alert("submit!");
+          alert('submit!')
         } else {
-          console.log("error submit!!");
-          return false;
+          console.log('error submit!!')
+          return false
         }
-      });
+      })
       // 跳转主页
-      this.$router.replace('/home');
+      this.$router.replace('/home')
     },
-    resetForm(formName) {
-      this.$refs[formName].resetFields();
-    },
-  },
-};
+    resetForm (formName) {
+      this.$refs[formName].resetFields()
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
 .l-wrapper {
-   @include sm-whbc($w:100%,$h:100%);
+  @include sm-whbc($w: 100%, $h: 100%);
   .login-content {
-    @include sm-whbc($w:100%,$h:100%);
-   position: relative;
+    @include sm-whbc($w: 100%, $h: 100%);
+    position: relative;
     .login-box {
-      @include sm-whbc(900px,500px,$sc-ff);
-      @include co-flexcc;
+      @include sm-whbc(1200px, 800px, $sc-ra67);
       @include co-po-trans;
-      .l-con {
-        @include sm-whbc($w:30%,$h:80%,$bc:$sc-66);
-        border-radius: 5px;
+      // @include co-flexcc;
+      display: flex;
+      border-radius: 15px;
+      overflow: hidden;
+      .l-img {
+        @include sm-whbc(500px, 100%, $sc-ra67);
       }
       .r-con {
-        @include sm-whbc($w:60%,$h:100%);
-        border-radius: 5px;
+        @include sm-whbc($w: 700px, $h: 100%);
+        padding: 50px 60px 50px 45px;
+        box-sizing: border-box;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
         .l-title {
-          @include sm-wh(100%,60px);
-          @include sm-font($a:28px,$c:$sc-r13);
-          text-align: center;
+          @include sm-wh(100%, 60px);
+          @include sm-font($a: 28px, $c: $sc-ff);
           line-height: 60px;
+          margin-bottom: 30px;
+        }
+        .el-input {
+          height: 50px;
+        }
+        /deep/.el-input__inner {
+          @include sm-font($a: 16px, $c: $sc-ff);
+          background: $sc-ra80;
+          height: 100%;
+          border-radius: 15px;
+          // border:1px solid $sc-r13;
+          &::placeholder {
+            @include sm-font($a: 16px, $c: $sc-bb);
+          }
+        }
+        .el-button {
+          @include sm-font($a: 16px, $c: $sc-ff);
+          @include sm-whbc(100px, 50px, $sc-ra13);
+
+          flex: 1;
+          color: #fff;
+          border-style: none;
+          margin-right: 30px;
+          &:last-child{
+            background-color: rgba(77, 158, 81,.7);
+            margin-right: 0px;
+          }
+        }
+        .sub-btn{
+          width: 100%;
+          @include sm-flexja(right,center);
+          padding: 10px;
+          box-sizing: border-box;
+        }
+        .l-link{
+          @include sm-font($a: 14px, $c: $sc-bb);
+          @include co-flexcc;
         }
       }
     }
