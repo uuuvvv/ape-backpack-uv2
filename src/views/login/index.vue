@@ -24,7 +24,11 @@
                   autocomplete="off"
                   :placeholder="phMsgList[key]"
                   clearable
-                ></el-input>
+                >
+                <template slot="prepend">
+                  <iconSvg :icon_name='`#ape-icon-a-xiugai2`'/>
+                </template>
+                </el-input>
               </el-form-item>
               <el-form-item>
                 <div class="sub-btn">
