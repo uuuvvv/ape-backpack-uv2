@@ -160,15 +160,22 @@ export default {
         }
         .el-button {
           @include sm-font($a: 16px, $c: $sc-ff);
-          @include sm-whbc(100px, 50px, $sc-ra13);
-
+          @include sm-whbc(100px, 50px);
+          background-image: linear-gradient(to right, $sc-ra13, $sc-ra255);
           flex: 1;
           color: #fff;
           border-style: none;
           margin-right: 30px;
           &:last-child{
-            background-color: rgba(77, 158, 81,.7);
+            // background-color: rgba(77, 158, 81,.7);
             margin-right: 0px;
+            background-image: linear-gradient(to right,  $sc-ra255, $sc-ra77);
+          }
+          &:hover{
+            background: $sc-ra13;
+          }
+          &:last-child:hover{
+            background: $sc-ra77;
           }
         }
         .sub-btn{
