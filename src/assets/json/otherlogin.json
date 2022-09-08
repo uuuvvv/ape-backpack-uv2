@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "qq", "icon": "ape-icon-social-qq", "order": 1 },
+  { "id": 2, "name": "wechat", "icon": "ape-icon-social-wechat", "order": 2 },
+  { "id": 3, "name": "github", "icon": "ape-icon-social-github", "order": 4 },
+  { "id": 4, "name": "skype", "icon": "ape-icon-social-skype", "order": 3 }
+]

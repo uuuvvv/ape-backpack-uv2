@@ -1,17 +1,22 @@
 <template>
-  <div class="l-wrapper" id="loginPage">
+  <div class="login-wrapper" id="loginPage">
     <div class="login-content">
-      <div class="login-box">
-        <div class="l-img"></div>
+      <div class="login-card">
+        <div class="l-img">
+          <el-carousel height="800px" arrow='never'>
+            <el-carousel-item v-for="item in 8" :key="item">
+              <img class="car-img" :src="require(`../../assets/imgs/login-swiper/s${item}.jpg`)" alt="">
+            </el-carousel-item>
+          </el-carousel>
+        </div>
         <div class="r-con">
-          <h1 class="l-title">猿背包</h1>
-          <div class="l-form">
+          <h1 class="r-title">猿背包</h1>
+          <div class="r-form">
             <el-form
               :model="ruleForm"
               status-icon
               :rules="rules"
               ref="ruleForm"
-              class="demo-ruleForm"
             >
               <el-form-item
                 v-for="(item, key) in ruleForm"
@@ -25,22 +30,38 @@
                   :placeholder="phMsgList[key]"
                   clearable
                 >
-                <template slot="prepend">
-                  <iconSvg :icon_name='`#ape-icon-a-xiugai2`'/>
-                </template>
+                  <template slot="prepend">
+                    <iconSvg
+                      class="form-input-icon"
+                      :icon_name="`#ape-icon-a-xiugai2`"
+                    />
+                  </template>
                 </el-input>
               </el-form-item>
               <el-form-item>
-                <div class="sub-btn">
-                <el-button>注册</el-button>
-                <el-button @click="submitForm('ruleForm')">提交</el-button></div>
-                
+                <div class="form-note">
+                  <el-checkbox v-model="checked"></el-checkbox>
+                  <p>
+                    同意请勾选，勾选后您将自动同意<span>《哇咔咔，神圣的协议》</span>的有关内容，出现任何问题，由您自己承担。
+                  </p>
+                </div>
               </el-form-item>
               <el-form-item>
-                <div class="l-link">
-                  <div class="link-name">第三方登录：</div>
+                <div class="form-sub-btn">
+                  <el-button>注册</el-button>
+                  <el-button @click="submitForm('ruleForm')">提交</el-button>
+                </div>
+              </el-form-item>
+              <el-form-item>
+                <div class="form-link">
+                  <div class="form-link-name">第三方登录：</div>
                   <ul>
-                    <li></li>
+                    <li v-for="item in otherloginList" :key="item.id">
+                      <iconSvg
+                        class="form-input-icon"
+                        :icon_name="`#${item.icon}`"
+                      />
+                    </li>
                   </ul>
                 </div>
               </el-form-item>
@@ -52,6 +73,7 @@
   </div>
 </template>
 <script>
+import otherloginList from '../../assets/json/otherlogin.json'
 export default {
   name: 'loginPage', //登录页面
   data () {
@@ -95,7 +117,9 @@ export default {
         username: '请输入用户名/手机号/邮箱',
         password: '请输入密码',
         checkNum: '请输入正确的验证码'
-      }
+      },
+      checked: false,
+      otherloginList
     }
   },
   components: {},
@@ -121,12 +145,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.l-wrapper {
+.login-wrapper {
   @include sm-whbc($w: 100%, $h: 100%);
+  color: $sc-ff;
   .login-content {
     @include sm-whbc($w: 100%, $h: 100%);
     position: relative;
-    .login-box {
+    .login-card {
       @include sm-whbc(1200px, 800px, $sc-ra67);
       @include co-po-trans;
       // @include co-flexcc;
@@ -135,6 +160,14 @@ export default {
       overflow: hidden;
       .l-img {
         @include sm-whbc(500px, 100%, $sc-ra67);
+
+        :deep().el-carousel__indicators {
+          display: flex;
+        }
+        .car-img{
+          width: 100%;
+          height: 100%;
+        }
       }
       .r-con {
         @include sm-whbc($w: 700px, $h: 100%);
@@ -143,23 +176,38 @@ export default {
         display: flex;
         flex-flow: column;
         justify-content: space-between;
-        .l-title {
+        .r-title {
           @include sm-wh(100%, 60px);
-          @include sm-font($a: 28px, $c: $sc-ff);
+          @include sm-font($a: 40px, $c: $sc-ff);
           line-height: 60px;
           margin-bottom: 30px;
         }
         .el-input {
           height: 50px;
         }
-        /deep/.el-input__inner {
+        :deep() .el-input__inner {
           @include sm-font($a: 16px, $c: $sc-ff);
           background: $sc-ra80;
           height: 100%;
-          border-radius: 15px;
-          // border:1px solid $sc-r13;
+          border-bottom-right-radius: 15px;
+          border-top-right-radius: 15px;
+          border: 1px solid $sc-r13;
+          border-left: none;
           &::placeholder {
             @include sm-font($a: 16px, $c: $sc-bb);
+          }
+        }
+        :deep().el-input-group__prepend {
+          border: 1px solid $sc-r13;
+          border-right: none;
+          border-bottom-left-radius: 15px;
+          border-top-left-radius: 15px;
+          padding: 0;
+          background: $sc-ra80;
+
+          .form-input-icon {
+            padding: 0 10px;
+            font-size: 30px;
           }
         }
         .el-button {
@@ -170,27 +218,52 @@ export default {
           color: #fff;
           border-style: none;
           margin-right: 30px;
-          &:last-child{
+          &:last-child {
             // background-color: rgba(77, 158, 81,.7);
             margin-right: 0px;
-            background-image: linear-gradient(to right,  $sc-ra255, $sc-ra77);
+            background-image: linear-gradient(to right, $sc-ra255, $sc-ra77);
           }
-          &:hover{
+          &:hover {
             background: $sc-ra13;
           }
-          &:last-child:hover{
+          &:last-child:hover {
             background: $sc-ra77;
           }
         }
-        .sub-btn{
+        .form-sub-btn {
           width: 100%;
-          @include sm-flexja(right,center);
+          @include sm-flexja(right, center);
           padding: 10px;
           box-sizing: border-box;
         }
-        .l-link{
+        .form-note {
+          display: flex;
+          @include sm-font($a: 14px, $c: $sc-ff);
+          line-height: 20px;
+          padding: 0 10px;
+          .el-checkbox {
+            margin-right: 10px;
+          }
+          p {
+            flex: 1;
+            span {
+              color: $sc-ra13;
+            }
+          }
+        }
+        .form-link {
           @include sm-font($a: 14px, $c: $sc-ra13);
           @include co-flexcc;
+          ul {
+            display: flex;
+            font-size: 25px;
+            li {
+              margin-right: 15px;
+              &:last-child {
+                margin-right: 0px;
+              }
+            }
+          }
         }
       }
     }
