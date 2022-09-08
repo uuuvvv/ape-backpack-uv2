@@ -1,49 +1,42 @@
 <template>
-  <div class="login-wrapper"
-       id="loginPage">
+  <div class="login-wrapper" id="loginPage">
     <div class="login-content">
       <div class="login-card">
         <div class="l-img">
-          <el-carousel height="800px"
-                       arrow='never'>
-            <el-carousel-item v-for="item in 8"
-                              :key="item">
-              <img class="car-img"
-                   :src="require(`../../assets/imgs/login-swiper/s${item}.jpg`)"
-                   alt="">
+          <el-carousel height="800px" arrow='never'>
+            <el-carousel-item v-for="item in 8" :key="item">
+              <img class="car-img" :src="require(`../../assets/imgs/login-swiper/s${item}.jpg`)" alt="">
             </el-carousel-item>
           </el-carousel>
         </div>
         <div class="r-con">
           <h1 class="r-title">猿背包</h1>
           <div class="r-form">
-            <el-form>
-              <el-form-item v-for="(item, key) in inputList"
-                            :prop="item.name"
-                            :key="key">
-                <div class="form-item-content">
-                  <el-input :type="item.name"
-                            v-model="item.value"
-                            autocomplete="off"
-                            :placeholder="item.placeholder"
-                            clearable>
-                    <template slot="prepend">
-                      <iconSvg class="form-input-icon"
-                               :icon_name="`#ape-icon-a-xiugai2`" />
-                    </template>
-                  </el-input>
-                  <el-input :type="item.name"
-                            v-model="item.value"
-                            autocomplete="off"
-                            :placeholder="item.placeholder"
-                            clearable>
-                    <template slot="prepend">
-                      <iconSvg class="form-input-icon"
-                               :icon_name="`#ape-icon-a-xiugai2`" />
-                    </template>
-                  </el-input>
-                </div>
-
+            <el-form
+              :model="ruleForm"
+              status-icon
+              :rules="rules"
+              ref="ruleForm"
+            >
+              <el-form-item
+                v-for="(item, key) in ruleForm"
+                :prop="key"
+                :key="key"
+              >
+                <el-input
+                  :type="key"
+                  v-model="ruleForm[key]"
+                  autocomplete="off"
+                  :placeholder="phMsgList[key]"
+                  clearable
+                >
+                  <template slot="prepend">
+                    <iconSvg
+                      class="form-input-icon"
+                      :icon_name="`#ape-icon-a-xiugai2`"
+                    />
+                  </template>
+                </el-input>
               </el-form-item>
               <el-form-item>
                 <div class="form-note">
@@ -55,18 +48,19 @@
               </el-form-item>
               <el-form-item>
                 <div class="form-sub-btn">
-                  <el-button @click="signForm">注册</el-button>
-                  <el-button @click="submitForm">提交</el-button>
+                  <el-button>注册</el-button>
+                  <el-button @click="submitForm('ruleForm')">提交</el-button>
                 </div>
               </el-form-item>
-              <el-form-item v-if="formType==='1'">
+              <el-form-item>
                 <div class="form-link">
                   <div class="form-link-name">第三方登录：</div>
                   <ul>
-                    <li v-for="item in otherloginList"
-                        :key="item.id">
-                      <iconSvg class="form-input-icon"
-                               :icon_name="`#${item.icon}`" />
+                    <li v-for="item in otherloginList" :key="item.id">
+                      <iconSvg
+                        class="form-input-icon"
+                        :icon_name="`#${item.icon}`"
+                      />
                     </li>
                   </ul>
                 </div>
@@ -80,7 +74,7 @@
 </template>
 <script>
 import otherloginList from '../../assets/json/otherlogin.json'
-import loginOrSign from '../../assets/json/loginOrSign.js'
+import loginOrSign from '../../assets/json/loginOrSign.json'
 export default {
   name: 'loginPage', //登录页面
   data () {
@@ -108,7 +102,11 @@ export default {
     }
     return {
       loginOrSign,
-      otherloginList,
+      ruleForm: {
+        username: '',
+        password: '',
+        checkNum: ''
+      },
       rules: {
         username: [
           { required: true, message: '请输入用户名/手机号/邮箱' },
@@ -116,38 +114,33 @@ export default {
         ],
         password: [{ validator: validatePassFn, trigger: 'blur' }],
         checkNum: [{ validator: validateCheckFn, trigger: 'blur' }]
-      }
-      ,
-      checked: false,//是否同意登录协议/注册协议；
-      formType: '1',// '1'是登录，‘2’注册，
-      inputList: []
+      },
+      phMsgList: {
+        username: '请输入用户名/手机号/邮箱',
+        password: '请输入密码',
+        checkNum: '请输入正确的验证码'
+      },
+      checked: false,
+      otherloginList
     }
   },
-  computed: {
-  },
   components: {},
-  mounted () {
-    this.inputList = this.filterInputFn(this.loginOrSign, this.formType)
-
-  },
+  mounted () {},
   methods: {
-    filterInputFn (list, formtype) {
-      return list.filter(item => item.type === formtype || item.type === '0')
-    },
-    submitForm () {
-      console.log('登录提交', loginOrSign)
-
+    submitForm (formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          alert('submit!')
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
       // 跳转主页
-      // this.$router.replace('/home')
+      this.$router.replace('/home')
     },
     resetForm (formName) {
       this.$refs[formName].resetFields()
-    },
-    signForm () {
-      this.formType = '2';
-      this.inputList = this.filterInputFn(this.loginOrSign, this.formType)
-      // 切换展示选项
-      console.log(this.loginOrSign, this.formType, this.inputList);
     }
   }
 }
@@ -173,7 +166,7 @@ export default {
         :deep().el-carousel__indicators {
           display: flex;
         }
-        .car-img {
+        .car-img{
           width: 100%;
           height: 100%;
         }
@@ -217,16 +210,6 @@ export default {
           .form-input-icon {
             padding: 0 10px;
             font-size: 30px;
-          }
-        }
-        .form-item-content{
-          display: flex;
-          .el-input{
-            flex: 1;
-            margin-right: 30px;
-            &:last-child{
-               margin-right: 0px;
-            }
           }
         }
         .el-button {

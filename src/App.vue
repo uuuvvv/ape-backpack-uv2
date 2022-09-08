@@ -22,8 +22,12 @@ export default {
 }
 </script>
 <style lang="scss">
+html,body{
+  @include sm-whbc($w: 100%, $h: 100%);
+}
 .app-wrapper {
-  @include sm-whbc($w: 100vw, $h: 100vh, $bc: $sc-33);
+  @include sm-whbc($w: 100%, $h: 100%, $bc: $sc-33);
+  box-sizing: border-box;
   .app-content {
     @include sm-whbc($w: 100%, $h: 100%);
     @include sm-ptrbl($p: absolute, $t: 0, $l: 0, $zi: 99);
