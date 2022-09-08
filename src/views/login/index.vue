@@ -185,7 +185,7 @@ export default {
           box-sizing: border-box;
         }
         .l-link{
-          @include sm-font($a: 14px, $c: $sc-bb);
+          @include sm-font($a: 14px, $c: $sc-ra13);
           @include co-flexcc;
         }
       }
