@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import searchBox from "@/components/searchBoxCom/searchBox.vue";
+import searchBox from "@/components/inputCom/searchBox.vue";
 import webClass from "@/components/cardCom/webClass.vue";
 import urlList from "@/components/listCom/index.vue";
 export default {
