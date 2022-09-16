@@ -170,7 +170,7 @@ export default {
       .l-img {
         @include sm-whbc(500px, 100%, $sc-ra67);
 
-        :deep().el-carousel__indicators {
+        /deep/.el-carousel__indicators {
           display: flex;
         }
         .car-img {
@@ -194,10 +194,10 @@ export default {
         .el-input {
           height: 50px;
         }
-        :deep() .el-input__inner {
+        /deep/ .el-input__inner {
           @include sm-font($a: 16px, $c: $sc-ff);
           background: $sc-ra80;
-          height: 100%;
+          height: 50px!important;
           border-bottom-right-radius: 15px;
           border-top-right-radius: 15px;
           border: 1px solid $sc-r13;
@@ -206,7 +206,7 @@ export default {
             @include sm-font($a: 16px, $c: $sc-bb);
           }
         }
-        :deep().el-input-group__prepend {
+        /deep/ .el-input-group__prepend {
           border: 1px solid $sc-r13;
           border-right: none;
           border-bottom-left-radius: 15px;
