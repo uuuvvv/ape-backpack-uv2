@@ -55,7 +55,7 @@
               </el-form-item>
               <el-form-item>
                 <div class="form-sub-btn">
-                  <el-button @click="signForm">注册</el-button>
+                  <el-button @click="signForm">{{formType==='1'?'前往注册':'返回登录'}}</el-button>
                   <el-button @click="submitForm">提交</el-button>
                 </div>
               </el-form-item>
@@ -143,8 +143,9 @@ export default {
     resetForm (formName) {
       this.$refs[formName].resetFields()
     },
+    // 切换登录、注册
     signForm () {
-      this.formType = '2';
+      this.formType = this.formType ==='1'?'2':'1';
       this.inputList = this.filterInputFn(this.loginOrSign, this.formType)
       // 切换展示选项
       console.log(this.loginOrSign, this.formType, this.inputList);
@@ -170,7 +171,7 @@ export default {
       .l-img {
         @include sm-whbc(500px, 100%, $sc-ra67);
 
-        /deep/.el-carousel__indicators {
+        /deep/ .el-carousel__indicators {
           display: flex;
         }
         .car-img {
@@ -194,10 +195,10 @@ export default {
         .el-input {
           height: 50px;
         }
-        /deep/ .el-input__inner {
+        /deep/  .el-input__inner {
           @include sm-font($a: 16px, $c: $sc-ff);
           background: $sc-ra80;
-          height: 50px!important;
+          height: 100%;
           border-bottom-right-radius: 15px;
           border-top-right-radius: 15px;
           border: 1px solid $sc-r13;
