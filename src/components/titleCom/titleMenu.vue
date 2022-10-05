@@ -6,7 +6,7 @@
     </div>
     <div class="menu-wrapper ml15">
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"
-        background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+        background-color="rgba(255, 255, 255, 0)" text-color="rgb(13, 172, 235)" active-text-color="#ffd04b">
         <el-menu-item v-for="(item, index) in menuData" :index="`${index}`" :key="index">{{ item.title }}</el-menu-item>
       </el-menu>
     </div>
@@ -89,7 +89,14 @@ $c1: rgb(0, 140, 255);
       color: $c1;
     }
   }
+  ul{
+    height: 60px;
+    box-sizing: border-box;
+  }
+  /deep/ .el-menu{
+    box-sizing: border-box;
 
+  }
   .tm-menu {
     height: 100%;
     display: flex;

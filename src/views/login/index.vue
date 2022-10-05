@@ -138,7 +138,7 @@ export default {
       console.log('登录提交', loginOrSign)
 
       // 跳转主页
-      // this.$router.replace('/home')
+      this.$router.replace('/homePage')
     },
     resetForm (formName) {
       this.$refs[formName].resetFields()
