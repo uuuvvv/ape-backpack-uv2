@@ -11,65 +11,49 @@
     nodeType: 1 当前项类型 1 input select checkbox 等
   },
  */
-export default [
-  {
-    name: 'username',
-    type: '0',
-    value: '',
-    rules: [],
-    placeholder: '请输入用户名/手机号/邮箱',
-    order: 1,
-    signOrder: 0,
-    nodeType: 1
-  },
-  {
-    name: 'password',
-    type: '0',
-    value: '',
-    rules: [],
-    placeholder: '请输入密码',
-    order: 2,
-    signOrder: 0,
-    nodeType: 1
-  },
-  {
-    name: 'checkNum',
-    type: '0',
-    value: '',
-    rules: [],
-    placeholder: '请输入验证码',
-    order: 3,
-    signOrder: 0,
-    nodeType: 1
-  },
-  {
-    name: 'checkPass',
-    type: '2',
-    value: '',
-    rules: [],
-    placeholder: '请再次确认密码',
-    order: 3,
-    signOrder: 0,
-    nodeType: 1
-  },
-  {
-    name: 'cellphone',
-    type: '0',
-    value: '',
-    rules: [],
-    placeholder: '请输入手机号码',
-    order: 3,
-    signOrder: 0,
-    nodeType: 1
-  },
-  {
-    name: 'email',
-    type: '0',
-    value: '',
-    rules: [],
-    placeholder: '请输入邮箱账号',
-    order: 3,
-    signOrder: 0,
-    nodeType: 1
-  }
-];
+const list = {
+  loginList01: [
+    {
+      name: 'username',
+      placeholder: '请输入用户名'
+    },
+    {
+      name: 'password',
+      placeholder: '请输入密码'
+    },
+  ],
+  loginList02: [
+    {
+      name: 'username',
+      placeholder: '请输入手机号/邮箱'
+    },
+    {
+      name: 'checkNum',
+      placeholder: '请输入验证码'
+    }
+  ],
+  signList: [
+    {
+      name: 'username',
+      placeholder: '请输入用户名'
+    },
+    {
+      name: 'password',
+      placeholder: '请输入密码'
+    },
+    {
+      name: 'checkPass',
+      placeholder: '请再次确认密码'
+    },
+    {
+      name: 'cellOrEmail',
+      placeholder: '请输入手机号码或邮箱账号'
+    },
+    {
+      name: 'checkNum',
+      placeholder: '请输入验证码'
+    }
+  ]
+}
+
+export default list

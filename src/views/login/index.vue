@@ -4,6 +4,7 @@
     <div class="login-content">
       <div class="login-card">
         <div class="l-img">
+          <!-- 右边轮播 -->
           <el-carousel height="800px"
                        arrow='never'>
             <el-carousel-item v-for="item in 8"
@@ -18,6 +19,21 @@
           <h1 class="r-title">猿背包</h1>
           <div class="r-form">
             <el-form>
+              <!-- 登录方式 -->
+              <el-form-item v-if="formType==='1'">
+            
+                <el-select v-model="loginType"
+                           placeholder="请选择">
+                  <el-option v-for="item in options"
+                             :key="item.value"
+                             :label="item.label"
+                             :value="item.value">
+                  </el-option>
+                 
+                </el-select>
+
+              </el-form-item>
+              <!-- 表单数据 -->
               <el-form-item v-for="(item, key) in inputList"
                             :prop="item.name"
                             :key="key">
@@ -32,19 +48,10 @@
                                :icon_name="`#ape-icon-a-xiugai2`" />
                     </template>
                   </el-input>
-                  <el-input :type="item.name"
-                            v-model="item.value"
-                            autocomplete="off"
-                            :placeholder="item.placeholder"
-                            clearable>
-                    <template slot="prepend">
-                      <iconSvg class="form-input-icon"
-                               :icon_name="`#ape-icon-a-xiugai2`" />
-                    </template>
-                  </el-input>
                 </div>
 
               </el-form-item>
+              <!-- 协议 -->
               <el-form-item>
                 <div class="form-note">
                   <el-checkbox v-model="checked"></el-checkbox>
@@ -53,12 +60,14 @@
                   </p>
                 </div>
               </el-form-item>
+              <!-- 按钮 -->
               <el-form-item>
                 <div class="form-sub-btn">
-                  <el-button @click="signForm">{{formType==='1'?'前往注册':'返回登录'}}</el-button>
-                  <el-button @click="submitForm">提交</el-button>
+                  <el-button @click="signFormFn">{{formType==='1'?'前往注册':'返回登录'}}</el-button>
+                  <el-button @click="submitFormFn">提交</el-button>
                 </div>
               </el-form-item>
+              <!-- 第三方登录方式 -->
               <el-form-item v-if="formType==='1'">
                 <div class="form-link">
                   <div class="form-link-name">第三方登录：</div>
@@ -80,75 +89,63 @@
 </template>
 <script>
 import otherloginList from '../../assets/json/otherlogin.json'
-import loginOrSign from '../../assets/json/loginOrSign.js'
+import list from '../../assets/json/loginOrSign.js'
 export default {
   name: 'loginPage', //登录页面
   data () {
-    // 校验用户名
-    var validateUserFn = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请输入用户名/手机号/邮箱'))
-      } else {
-        callback()
-      }
-    }
-    // 校验密码
-    var validatePassFn = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请输入密码'))
-      } else {
-        callback()
-      }
-    }
-    // 校验验证码
-    var validateCheckFn = (rule, value, callback) => {
-      if (!value) {
-        return callback(new Error('请输入正确的验证码'))
-      }
-    }
     return {
-      loginOrSign,
+
       otherloginList,
-      rules: {
-        username: [
-          { required: true, message: '请输入用户名/手机号/邮箱' },
-          { validator: validateUserFn, trigger: 'blur' }
-        ],
-        password: [{ validator: validatePassFn, trigger: 'blur' }],
-        checkNum: [{ validator: validateCheckFn, trigger: 'blur' }]
-      }
-      ,
       checked: false,//是否同意登录协议/注册协议；
-      formType: '1',// '1'是登录，‘2’注册，
-      inputList: []
+      formType: '1',// '1'是登录，‘2’注册，默认登录
+      inputList: [],
+      options: [{
+        value: '1',
+        label: '账号密码登录'
+      }, {
+        value: '2',
+        label: '手机邮箱验证登录'
+      },],
+      loginType: '1'
     }
   },
   computed: {
   },
+  watch: {
+    formType (val) {
+      this.inputList = this.selectListFn(val,this.loginType);
+      console.log(this.inputList)
+    },
+    loginType(val){
+      this.inputList = this.selectListFn(this.formType,val);
+      console.log(this.inputList)
+    }
+  },
   components: {},
   mounted () {
-    this.inputList = this.filterInputFn(this.loginOrSign, this.formType)
-
+    console.log(list)
+    // 初始化显示数据
+    this.inputList = this.selectListFn(this.formType,this.loginType)
   },
   methods: {
-    filterInputFn (list, formtype) {
-      return list.filter(item => item.type === formtype || item.type === '0')
+    // 根据类型选择显示字段数据
+    selectListFn (type,selType) {
+      return type === '1' ? selType==='1'?list.loginList01:list.loginList02 : list.signList
     },
-    submitForm () {
-      console.log('登录提交', loginOrSign)
+    // 提交方法 
+    submitFormFn () {
+      console.log('登录提交', list.loginList)
 
       // 跳转主页
       // this.$router.replace('/home')
     },
+    // 页面重置
     resetForm (formName) {
       this.$refs[formName].resetFields()
     },
     // 切换登录、注册
-    signForm () {
-      this.formType = this.formType ==='1'?'2':'1';
-      this.inputList = this.filterInputFn(this.loginOrSign, this.formType)
-      // 切换展示选项
-      console.log(this.loginOrSign, this.formType, this.inputList);
+    signFormFn () {
+      this.formType = this.formType === '1' ? '2' : '1';
     }
   }
 }
@@ -195,10 +192,16 @@ export default {
         .el-input {
           height: 50px;
         }
-        /deep/  .el-input__inner {
+        .el-select ,.el-select .el-input {
+          width: 100%;
+          height: 100%!important; 
+
+        }
+        /deep/ .el-input__inner {
           @include sm-font($a: 16px, $c: $sc-ff);
           background: $sc-ra80;
           height: 100%;
+          width: 100%;
           border-bottom-right-radius: 15px;
           border-top-right-radius: 15px;
           border: 1px solid $sc-r13;
@@ -220,13 +223,20 @@ export default {
             font-size: 30px;
           }
         }
-        .form-item-content{
+        .form-item-select {
+          /deep/ .el-input__inner {
+            flex: 1;
+            height: 40px;
+            width: 100%;
+          }
+        }
+        .form-item-content {
           display: flex;
-          .el-input{
+          .el-input {
             flex: 1;
             margin-right: 30px;
-            &:last-child{
-               margin-right: 0px;
+            &:last-child {
+              margin-right: 0px;
             }
           }
         }
