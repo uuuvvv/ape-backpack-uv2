@@ -21,8 +21,8 @@
             <el-form>
               <!-- 登录方式 -->
               <el-form-item v-if="formType==='1'">
-            
-                <el-select v-model="loginType"
+                <div class=" form-item-content form-item-select">
+                  <el-select v-model="loginType"
                            placeholder="请选择">
                   <el-option v-for="item in options"
                              :key="item.value"
@@ -31,6 +31,8 @@
                   </el-option>
                  
                 </el-select>
+                </div>
+                
 
               </el-form-item>
               <!-- 表单数据 -->
@@ -189,18 +191,9 @@ export default {
           line-height: 60px;
           margin-bottom: 30px;
         }
-        .el-input {
-          height: 50px;
-        }
-        .el-select ,.el-select .el-input {
-          width: 100%;
-          height: 100%!important; 
-
-        }
         /deep/ .el-input__inner {
           @include sm-font($a: 16px, $c: $sc-ff);
           background: $sc-ra80;
-          height: 100%;
           width: 100%;
           border-bottom-right-radius: 15px;
           border-top-right-radius: 15px;
@@ -220,14 +213,16 @@ export default {
 
           .form-input-icon {
             padding: 0 10px;
-            font-size: 30px;
+            font-size: 20px;
           }
         }
         .form-item-select {
-          /deep/ .el-input__inner {
-            flex: 1;
-            height: 40px;
+          .el-select {
             width: 100%;
+          }
+          /deep/ .el-input__inner{
+            border-radius: 15px;
+            border: 1px solid $sc-r13;
           }
         }
         .form-item-content {
