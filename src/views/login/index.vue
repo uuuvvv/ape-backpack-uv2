@@ -50,6 +50,7 @@
                                :icon_name="`#ape-icon-a-xiugai2`" />
                     </template>
                   </el-input>
+                  <div class="error">{{item.errorMsg}}</div>
                 </div>
 
               </el-form-item>
@@ -226,6 +227,7 @@ export default {
           }
         }
         .form-item-content {
+          position: relative;
           display: flex;
           .el-input {
             flex: 1;
@@ -233,6 +235,13 @@ export default {
             &:last-child {
               margin-right: 0px;
             }
+          }
+          .error{
+            position: absolute;
+            bottom: -30px;
+            left: 10px;
+            @include sm-font($a: 14px, $c:rgba(250, 7, 7, 0.87));
+            font-weight: 700;
           }
         }
         .el-button {

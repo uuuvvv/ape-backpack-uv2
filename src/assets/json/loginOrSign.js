@@ -15,43 +15,61 @@ const list = {
   loginList01: [
     {
       name: 'username',
-      placeholder: '请输入用户名'
+      placeholder: '请输入用户名',
+      value:'',
+      error:''
     },
     {
       name: 'password',
-      placeholder: '请输入密码'
+      placeholder: '请输入密码',
+      value:'',
+      error:''
     },
   ],
   loginList02: [
     {
       name: 'username',
-      placeholder: '请输入手机号/邮箱'
+      placeholder: '请输入手机号/邮箱',
+      value:'',
+      error:''
     },
     {
       name: 'checkNum',
-      placeholder: '请输入验证码'
+      placeholder: '请输入验证码',
+      value:'',
+      error:''
     }
   ],
   signList: [
     {
       name: 'username',
-      placeholder: '请输入用户名'
+      placeholder: '请输入用户名',
+      value:'',
+      error:''
     },
     {
       name: 'password',
-      placeholder: '请输入密码'
+      placeholder: '请输入密码',
+      value:'',
+      error:''
     },
     {
       name: 'checkPass',
-      placeholder: '请再次确认密码'
+      placeholder: '请再次确认密码',
+      value:'',
+      error:''
     },
     {
       name: 'cellOrEmail',
-      placeholder: '请输入手机号码或邮箱账号'
+      placeholder: '请输入手机号码或邮箱账号',
+      value:'',
+      error:''
     },
     {
       name: 'checkNum',
-      placeholder: '请输入验证码'
+      placeholder: '请输入验证码',
+      value:'',
+      error:''
     }
   ]
 }
