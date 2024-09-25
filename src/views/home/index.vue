@@ -26,5 +26,8 @@ export default {
 
 <style lang="scss" scoped>
 .hp-wrapper {
+  background-color: rgba($color: #fff, $alpha: .2);
+  height: 100%;
+  width: 90%;
 }
 </style>

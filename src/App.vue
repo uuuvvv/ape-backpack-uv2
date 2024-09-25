@@ -26,7 +26,7 @@ html,body{
   @include sm-whbc($w: 100%, $h: 100%);
 }
 .app-wrapper {
-  @include sm-whbc($w: 100%, $h: 100%, $bc: $sc-33);
+  @include sm-whbc($w: 100%, $h: 100%, $bc: $sc-00);
   box-sizing: border-box;
   .app-content {
     @include sm-whbc($w: 100%, $h: 100%);

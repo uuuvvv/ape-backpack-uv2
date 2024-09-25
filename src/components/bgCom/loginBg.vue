@@ -1,7 +1,7 @@
 <template>
   <div class="lbg-wrapper">
     <canvas id="canvasDom" class="canvas-dom"
-      >您的浏览器不支持canvas标签。</canvas
+      ></canvas
     >
   </div>
 </template>
@@ -87,7 +87,7 @@ export default {
         color: `rgb(${Math.floor(Math.random() * 255)},${Math.floor(
           Math.random() * 255
         )},${Math.floor(Math.random() * 255)})`, //颜色
-        count: 100, //线条数量
+        count: 150, //线条数量
       };
     },
     // 获取屏幕宽高

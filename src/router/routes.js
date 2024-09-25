@@ -16,7 +16,7 @@ export default [
   {
     //重定向首页
     path: '/',
-    redirect: '/login'
+    redirect: '/homePage'
   },
   // 主页面
   {

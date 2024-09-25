@@ -66,7 +66,6 @@ $c1: rgb(0, 140, 255);
 }
 
 .tm-wrapper {
-  width: 80%;
   height: 60px;
   box-sizing: border-box;
   display: flex;

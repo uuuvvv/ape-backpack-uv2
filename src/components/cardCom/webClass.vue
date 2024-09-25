@@ -45,9 +45,7 @@ export default {
 
 <style lang="scss" scoped>
 .wc-wrapper {
-  width: 80%;
   height: 200px;
-  background: red;
   margin: 0 auto;
   margin-bottom: 5px;
   .wc-content{

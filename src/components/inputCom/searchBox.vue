@@ -31,8 +31,7 @@ export default {
 $c1:rgb(0, 140, 255);
 
 .sb-wrapper {
-  width: 80%;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.8);
   margin: 0 auto;
   margin-bottom: 5px;
   

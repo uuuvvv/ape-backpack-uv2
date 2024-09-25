@@ -21,9 +21,7 @@ export default {
 
 <style lang="scss" scoped>
 .ul-wrapper {
-  width: 80%;
   height: 500px;
-  background: greenyellow;
   margin: 0 auto;
   margin-bottom: 5px;
 }
